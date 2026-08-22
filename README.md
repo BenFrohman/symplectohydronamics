@@ -45,9 +45,21 @@ www.fsymhd.com               CNAME          → <host>
 
 **Live public URL (free Railway host):** [https://fsymhd-production.up.railway.app](https://fsymhd-production.up.railway.app)
 
-Custom domains `fsymhd.com` and `www.fsymhd.com` are already attached on Railway. After you register them, create CNAME records to the Railway targets shown in `railway domain status`. The free plan allows two custom domains per service; add `symplectohydronamics.com` / `www` after a plan upgrade, or point both names at the same Railway service from a DNS provider that supports aliasing.
+Both brand names are already attached on the Railway service (free plan = two custom domains). After you register the `.com` names, add these DNS records:
 
-Until those `.com` names are registered, the Railway URL is the public observatory. The site is hostname-aware: visiting a host containing `fsymhd` elevates the compact identity; otherwise it elevates Symplectohydrodynamics. Both names always appear as dual-facing endpoints.
+| Host | Type | Target |
+| --- | --- | --- |
+| `www.fsymhd.com` | CNAME | `bdlyd2jn.up.railway.app` |
+| `www.symplectohydronamics.com` | CNAME | `k8s670ui.up.railway.app` |
+
+Verification TXT (Railway SSL):
+
+- `_railway-verify.www.fsymhd.com` → `railway-verify=94292ff33c0329594f726434085cad015685c17f8473ebeadbe9e2417a02da01`
+- `_railway-verify.www.symplectohydronamics.com` → `railway-verify=c382d0885c9520c84eccdd580686ee88eb03ed52a9d1a654db3c76dfd1520f0d`
+
+Apex (`fsymhd.com` / `symplectohydronamics.com`) can ALIAS/ANAME to the same targets once the registrar allows a third/fourth domain, or after a Railway plan upgrade. Until registration, the Railway URL is the public observatory.
+
+The site is hostname-aware: a host containing `fsymhd` elevates the compact identity; otherwise it elevates Symplectohydrodynamics. Both names always appear as dual-facing endpoints.
 
 ## Update workflow
 
