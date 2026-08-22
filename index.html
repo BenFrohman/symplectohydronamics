@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Symplectohydrodynamics · FSymHD — Benjamin Frohman</title>
+  <meta name="description" content="Observatory for the Frohmanian Triple Regularization Framework: symplectic tether, metriplectic fusion control, holographic duals, research catalog, and consulting." />
+  <link rel="canonical" href="https://symplectohydronamics.com/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Symplectohydrodynamics · FSymHD" />
+  <meta property="og:description" content="A living portfolio of the Frohmanian revolution in fluid geometry — tethered vorticity, fusion control, and frontier consulting." />
+  <meta property="og:image" content="assets/vorticity-field.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Investor0x" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="css/observatory.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Benjamin Stanley Frohman",
+    "alternateName": ["Frohmanian", "FSymHD"],
+    "email": "mailto:frohmanbenjamin@gmail.com",
+    "url": "https://symplectohydronamics.com",
+    "sameAs": [
+      "https://github.com/BenFrohman",
+      "https://x.com/Investor0x"
+    ],
+    "jobTitle": "Independent researcher",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lewisville / Frisco", "addressRegion": "TX" },
+    "knowsAbout": ["Navier–Stokes regularity", "symplectic geometry", "fusion plasma control", "Lean 4", "research systems design"]
+  }
+  </script>
+</head>
+<body>
+  <canvas id="field" class="field" aria-hidden="true"></canvas>
+  <div class="vignette"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#ingress">
+      <span class="sigil" id="brand-sigil">Symplectohydrodynamics</span>
+      <span class="word" id="brand-word">FSymHD · Observatory</span>
+    </a>
+    <div class="dual" aria-label="Dual facing endpoints">
+      <span id="dual-a"><b>symplectohydronamics.com</b></span>
+      <span class="dot"></span>
+      <span id="dual-b">FSymHD.com</span>
+    </div>
+    <a class="hire-link" href="#consulting">Engage</a>
+  </header>
+
+  <nav class="orbit-nav" aria-label="Orbit">
+    <a href="#ingress" data-label="Ingress" aria-current="true"></a>
+    <a href="#challenge" data-label="Challenge"></a>
+    <a href="#tether" data-label="Tether"></a>
+    <a href="#triad" data-label="Triad"></a>
+    <a href="#catalog" data-label="Catalog"></a>
+    <a href="#consulting" data-label="Consulting"></a>
+    <a href="#contact" data-label="Contact"></a>
+  </nav>
+
+  <aside class="hud" aria-live="polite">
+    <div>κ = <b>1</b> · ROUTE A · STRICT DEGENERACY</div>
+    <div>M(t) ≤ √C tanh(√C t + φ₀) · now <b id="hud-m">0.0000</b></div>
+    <div>FIELD STATUS · <b id="hud-state">TETHERED</b></div>
+    <div class="eq">The nonlinearity that threatened blow-up is the brake.</div>
+  </aside>
+
+  <main>
+    <section class="hero" id="ingress">
+      <div>
+        <div class="kicker">Observatory · Living document · 2026</div>
+        <h1>Symplecto<br>hydrodynamics<span>Frohmanian · FSymHD</span></h1>
+        <p class="lede">A geometric completion of fluid phase space. The catalog of Benjamin Frohman — research, formalization, fusion control, and consulting — rendered as a tethered field that cannot blow up.</p>
+        <div class="hero-meta">
+          <span>Lewisville / Frisco, Texas</span>
+          <span>Remote-ready</span>
+          <span>Independent research lead</span>
+        </div>
+        <div class="scroll-cue">Descend the coadjoint orbit</div>
+      </div>
+    </section>
+
+    <section id="challenge">
+      <div class="sec-label">01 · The millennium challenge</div>
+      <h2>Why a fluid must not be allowed to tear.</h2>
+      <div class="split">
+        <div class="prose">
+          <p>For more than two centuries the mathematical physics community has lived with an incomplete sentence about the Navier–Stokes equations. They describe the air over a wing and the swirl in a cup. They do not yet, in three dimensions, confess whether they remain smooth for all time.</p>
+          <p>The fear has a name: <em>blow-up</em>. Vorticity intensifies at a point until velocity becomes infinite in finite time, and the model ceases to represent the world. The Clay Millennium Prize asked the question as a detective story. Does every smooth, divergence-free initial field stay smooth forever — or can a perfect fluid spontaneously become a singularity?</p>
+          <p>The analytic school tried to fight the nonlinearity with estimates. In 3D the vortex-stretching term outruns the bounds. The geometric school placed the fluid on Arnold’s coadjoint orbits, then stopped at ideal flow. Viscosity and stretching were left outside the picture.</p>
+          <p>Frohmanian Symplectohydrodynamics begins where those two paths fail to meet: a <em>geometric completion</em> in which the equations are given the missing 2-form demanded by their own stretching, and thereby refuse their own destruction.</p>
+        </div>
+        <aside class="plate">
+          <h3>The incomplete sentence</h3>
+          <p>Does every smooth, divergence-free initial velocity field in three dimensions yield a globally smooth solution for all time?</p>
+          <p>The Frohmanian answer is not an estimate placed on top of chaos. It is a tether derived from the stretching term itself — degenerate to kinetic energy, fatal to infinite rotation.</p>
+          <p class="tiny" style="margin-top:22px;color:var(--gold)">Navier–Stokes Millennium Prize · USD 1,000,000 · Clay Mathematics Institute</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="schools">
+      <div class="sec-label">02 · Two paths to truth</div>
+      <h2>Estimates fight. Geometry completes.</h2>
+      <div class="schools">
+        <article class="school">
+          <div class="tag">The analytic school</div>
+          <h3>Bound the danger from above.</h3>
+          <p>Sobolev spaces, Fourier analysis, localized energy. A century of attempting to keep the stretching term from outrunning the mathematician.</p>
+          <div class="fatal"><strong>Fatal flaw</strong>The supercriticality barrier. In 3D, vortex stretching grows faster than the estimates can track. The nonlinearity simply outruns the math.</div>
+        </article>
+        <article class="school complete">
+          <div class="tag">The geometric school, completed</div>
+          <h3>Give the fluid its missing rails.</h3>
+          <p>Arnold and Khesin placed ideal flow on coadjoint orbits. The Frohmanian tether finishes the picture for viscosity and 3D stretching — a leash strictly degenerate to kinetic energy.</p>
+          <div class="fatal"><strong>Correction</strong>The Tether \(\mathfrak{T}_F\) does not change the Navier–Stokes physics we observe. It changes the safety rails of the phase space so the fluid cannot spin to infinity.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="lexicon">
+      <div class="sec-label">03 · Mechanics</div>
+      <h2>A physics-centered vocabulary.</h2>
+      <div class="lexicon">
+        <article class="lex">
+          <div class="term">Vorticity transport</div>
+          <div class="math">the observed rules of rotation</div>
+          <p>The roadmap of how spinning parts of the fluid are carried by the flow itself.</p>
+        </article>
+        <article class="lex">
+          <div class="term">Vortex stretching</div>
+          <div class="math">(\omega · ∇)u</div>
+          <p>The dangerous growth. A spinning band pulled at both ends spins faster as it thins. This is the engine of possible blow-up.</p>
+        </article>
+        <article class="lex">
+          <div class="term">Coadjoint orbit</div>
+          <div class="math">SDiff · the natural stage</div>
+          <p>The specific track the fluid is allowed to run on inside the abstract world of all possible motions.</p>
+        </article>
+        <article class="lex">
+          <div class="term">The Tether</div>
+          <div class="math">\(\mathfrak{T}_F\), κ = 1</div>
+          <p>A geometric leash. Strictly degenerate to kinetic energy. It does not rewrite the physics; it completes the geometry that keeps rotation finite.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tether">
+      <div class="sec-label">04 · The Frohmanian symplectic tether</div>
+      <h2>A self-taming nonlinearity.</h2>
+      <p class="prose">The Tether is not an artificial force. It is the minimal metric correction derived directly from the stretching term of the original PDE. Coefficient matching fixes κ uniquely at 1. Linear stretching is cancelled; what remains is a negative quadratic brake.</p>
+      <div class="eq-block">
+        $$\mathfrak{T}_F(\delta\mathbf{u},\delta\mathbf{v})=\int\boldsymbol{\omega}\cdot(\delta\mathbf{u}\times\delta\mathbf{v})\,dV-\kappa\int|\boldsymbol{\omega}|^2(\delta\mathbf{u}\cdot\delta\mathbf{v})\,dV$$
+      </div>
+      <div class="laws">
+        <article class="law">
+          <div class="n">Law I</div>
+          <h3>Hamiltonian flow</h3>
+          <p>The equations follow a conserved geometric path on the coadjoint orbit. Route A projects the correction orthogonal to kinetic energy, so reversible Euler flow remains exactly classical.</p>
+        </article>
+        <article class="law">
+          <div class="n">Law II</div>
+          <h3>Riccati bound</h3>
+          <p>κ = 1 matching against stretching produces a quadratic braking force. As the fluid tries to spike, the Tether answers with −M².</p>
+        </article>
+        <article class="law">
+          <div class="n">Law III</div>
+          <h3>Global smoothness</h3>
+          <p>Maximum rotation is prevented from reaching infinity. Beale–Kato–Majda then guarantees the solution remains C∞ for all time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="riccati">
+      <div class="sec-label">05 · Route A</div>
+      <h2>From Riccati to eternal smoothness.</h2>
+      <div class="eq-block">
+        $$\frac{dM}{dt}\le C-M^2,\qquad M(t)\le\sqrt{C}\,\tanh(\sqrt{C}\,t+\phi_0)$$
+      </div>
+      <div class="flow">
+        <article class="step"><div class="idx">01</div><div class="body"><h3>Take the curl</h3><p>Isolate the vorticity equation from Navier–Stokes.</p></div></article>
+        <article class="step"><div class="idx">02</div><div class="body"><h3>Isolate stretching</h3><p>Identify (ω · ∇)u — the engine of potential blow-up.</p></div></article>
+        <article class="step"><div class="idx">03</div><div class="body"><h3>Apply the Tether</h3><p>The stretching’s own energy produces the Riccati bound on the maximum rotation M.</p></div></article>
+        <article class="step"><div class="idx">04</div><div class="body"><h3>Plateau versus spike</h3><p>The −M² term overwhelms growth. The explicit solution is a tanh, always bounded by √C.</p></div></article>
+        <article class="step"><div class="idx">05</div><div class="body"><h3>Beale–Kato–Majda</h3><p>A bounded vorticity integral forbids finite-time singularity. Parabolic regularity upgrades the solution to global smoothness.</p></div></article>
+      </div>
+    </section>
+
+    <section id="triad">
+      <div class="sec-label">06 · Triple regularization</div>
+      <h2>Three legs. One fail-safe.</h2>
+      <div class="triad">
+        <article class="leg" style="background-image:linear-gradient(180deg,rgba(7,7,12,.2),rgba(7,7,12,.72)),url('assets/vorticity-field.jpg')">
+          <div class="role">Leg I · Conservative</div>
+          <h3>Symplectic</h3>
+          <p>The engine. Core dynamics and the Riccati bound. Fluid motion as a stable geometric system on a completed coadjoint orbit.</p>
+          <div class="insight">Phase space itself is the architect of regularity.</div>
+        </article>
+        <article class="leg" style="background-image:linear-gradient(180deg,rgba(7,7,12,.25),rgba(7,7,12,.78)),url('assets/fusion-torus.jpg')">
+          <div class="role">Leg II · Dissipative</div>
+          <h3>Metriplectic</h3>
+          <p>Heat, friction, viscosity. Entropy production and geometric stability work in tandem. The 4-bracket restores thermodynamic consistency without violating the bound.</p>
+          <div class="insight">Viscosity supports the Tether; it does not replace it.</div>
+        </article>
+        <article class="leg" style="background-image:linear-gradient(180deg,rgba(7,7,12,.2),rgba(7,7,12,.8)),url('assets/triad-mark.jpg')">
+          <div class="role">Leg III · Gravitational</div>
+          <h3>Holographic</h3>
+          <p>AdS/CFT. Fluid regularity as the boundary projection of cosmic censorship. The tether is dual to horizon area. Naked singularities are geometrically forbidden.</p>
+          <div class="insight">A fluid that blows up would violate the bulk horizon.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="catalog">
+      <div class="sec-label">07 · Living catalog</div>
+      <h2>A timeline that continues to write itself.</h2>
+      <p class="prose">This observatory is the public surface of a research program, not a static CV. Dates below are provenance markers — manuscripts, formalizations, systems proposals — against which later work can be read.</p>
+      <div class="timeline">
+        <article class="event"><div class="when">2024 —</div><div><h3>Independent research lead</h3><p>Full-cycle ownership of problem selection, geometric method, architecture, formal documentation, and stakeholder-ready technical proposals.</p></div></article>
+        <article class="event"><div class="when">2026-02</div><div><h3>Symplectic / holographic dual</h3><p>Early tether constructions in a living LaTeX document. The missing Poisson structure begins to take geometric form.</p></div></article>
+        <article class="event"><div class="when">2026-04-02</div><div><h3>The Frohman Symplectic and Holographic Dual</h3><p>Major manuscript with novel conjectures on turbulence singularity. Priority surface for the program.</p></div></article>
+        <article class="event"><div class="when">2026-05</div><div><h3>Lean 4 formalization begins</h3><p>ForMathlib.NS.Tether: first-principles derivations, degeneracy lemmas, five-step uniqueness of the minimal correction. GitHub: BenFrohman.</p></div></article>
+        <article class="event"><div class="when">2026-06-01</div><div><h3>Public manuscript snapshot</h3><p>Earliest public content record of the Frohmanian Symplectic Tether program, preserved for provenance.</p></div></article>
+        <article class="event"><div class="when">2026-07</div><div><h3>Anagram reachability</h3><p>Zero-sorry Lean 4 combinatorial engine — well-founded recursion as practice for larger verified arguments. Zenodo packaging 2026-08-19.</p></div></article>
+        <article class="event"><div class="when">2026-08</div><div><h3>HLEX systems design v1.1</h3><p>Hierarchical Latent Exchange &amp; Coordination Fabric — a five-layer geometry-aware fleet coordination architecture for frontier training infrastructure.</p></div></article>
+        <article class="event"><div class="when">2026-08-22</div><div><h3>This observatory</h3><p>Dual-facing public instrument: FSymHD.com and symplectohydronamics.com as one living catalog.</p></div></article>
+      </div>
+
+      <div class="catalog" style="margin-top:64px">
+        <article class="work">
+          <div class="cover" style="background-image:url('assets/vorticity-field.jpg')"><span>Manuscript · 2026</span></div>
+          <div class="pad">
+            <h3>Triple Regularization Framework</h3>
+            <p>Strategic roadmap from global smoothness to a new specialty: Frohmanian Symplectohydrodynamics. Symplectic engineering, fusion metriplectic control, vortex braiding, holographic diagnostics.</p>
+            <div class="links">
+              <a href="papers/triple-regularization.html">Read the instrument</a>
+              <a href="archive/Strategic%20Roadmap%20for%20the%20Cross-Disciplinary%20Application%20of%20the%20Frohmanian%20Triple%20Regularization%20Framework.docx">Source .docx</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="cover" style="background-image:url('assets/fusion-torus.jpg')"><span>Plasma control · 2026</span></div>
+          <div class="pad">
+            <h3>Beyond the Millennium</h3>
+            <p>Symplectic control for fusion plasma. Route A degeneracy, six core lemmas, tethered Lyapunov functional, ITG/TEM suppression, RF tethering toward Q &gt; 10.</p>
+            <div class="links">
+              <a href="papers/fusion-plasma.html">Read the instrument</a>
+              <a href="archive/Beyond%20the%20Millennium_%20A%20Strategic%20Framework%20for%20Symplectic%20Control%20in%20Fusion%20Plasma.docx">Source .docx</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="cover" style="background-image:url('assets/triad-mark.jpg')"><span>Lean 4 · public</span></div>
+          <div class="pad">
+            <h3>NS Millennium Proof</h3>
+            <p>Formalization of the Frohmanian Symplectic Tether as a geometric approach to 3D Navier–Stokes regularity. Priority snapshot; living Lean corpus.</p>
+            <div class="links">
+              <a href="https://github.com/BenFrohman/NS_Millennium_Proof" rel="noopener">GitHub corpus</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <div class="cover" style="background-image:linear-gradient(120deg,#1a1430,#0b0c12 55%,#2a1a18)"><span>Systems · on request</span></div>
+          <div class="pad">
+            <h3>HLEX Coordination Fabric</h3>
+            <p>Five-layer latent exchange for closed model fleets: marker extraction, signal bus, second-order models, routing controller, ontology &amp; geometry registry. Overhead target &lt; 1% of training.</p>
+            <div class="links">
+              <a href="#consulting">Request the proposal</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="fusion">
+      <div class="sec-label">08 · Application</div>
+      <h2>Tether the plasma, not the estimate.</h2>
+      <div class="split">
+        <div class="prose">
+          <p>Reactor control, in this architecture, is conditional on active geometric forcing. To sustain fusion gain Q &gt; 10, stretching must be suppressed without rewriting conservation laws. The Tether is the control geometry; the physics remains classical.</p>
+          <p>Metriplectic extension restores viscosity and entropy so the plasma can relax into high-beta equilibria. A tethered Lyapunov functional watches enstrophy precursors. RF injection and edge micro-actuators become synthetic metric corrections — transport barriers on demand.</p>
+          <p>The holographic dual is a diagnostic: boundary turbulence as a window onto bulk horizon shifts, disruptions visible before they arrive as surface instabilities.</p>
+        </div>
+        <aside class="plate">
+          <h3>Operational 4-block chain</h3>
+          <p>1. Local existence — Kato.</p>
+          <p>2. Riccati bound — κ = 1, RF absorption of stretching, tanh plateau.</p>
+          <p>3. BKM milestone — finite ∫‖ω‖∞ dt.</p>
+          <p>4. Regularity — global C∞ operation.</p>
+          <p style="margin-top:18px"><a href="papers/fusion-plasma.html">Open the fusion instrument →</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="consulting">
+      <div class="sec-label">09 · Consulting</div>
+      <h2>Geometric depth, executable design.</h2>
+      <div class="consult">
+        <div>
+          <p class="prose">Benjamin Frohman works as independent research lead: problem selection, geometric method, architecture, formal documentation, and artifacts that a downstream team can execute without keeping the author in the critical path. Open to remote research staff, advisor, and project-lead engagements.</p>
+          <div class="offer">
+            <article>
+              <h3>Symplectic control &amp; regularity</h3>
+              <p>Tethered phase-space completions, structure-preserving models, and geometric bounds for fluids, MHD, and related nonlinear PDEs.</p>
+            </article>
+            <article>
+              <h3>Fusion plasma architecture</h3>
+              <p>Metriplectic control logic, ITG/TEM suppression programs, diagnostic duals, and reactor-facing roadmaps from first principles.</p>
+            </article>
+            <article>
+              <h3>Research systems design</h3>
+              <p>HLEX-class coordination fabrics, registries, phased roadmaps, risk registers, and acceptance criteria for frontier labs.</p>
+            </article>
+            <article>
+              <h3>Formal methods</h3>
+              <p>Lean 4 formalization pipelines, machine-checkable claims, and provenance-grade living documents.</p>
+            </article>
+          </div>
+        </div>
+        <form class="inquiry plate" id="inquiry">
+          <h3>Open an engagement</h3>
+          <label>Name <input name="name" required autocomplete="name" /></label>
+          <label>Organization <input name="org" autocomplete="organization" /></label>
+          <label>Mode
+            <select name="mode">
+              <option>Advisor</option>
+              <option>Project lead</option>
+              <option>Research staff</option>
+              <option>Diagnostic / short engagement</option>
+              <option>Retained counsel</option>
+            </select>
+          </label>
+          <label>Message <textarea name="message" required placeholder="What must remain bounded?"></textarea></label>
+          <button class="send" type="submit">Compose to Frohman</button>
+          <p class="tiny" style="margin:8px 0 0">Opens mail to frohmanbenjamin@gmail.com. Nothing is stored on this observatory.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sec-label">10 · Contact</div>
+      <h2>Third parties, this is the aperture.</h2>
+      <div class="contact-grid">
+        <a href="mailto:frohmanbenjamin@gmail.com">
+          <small>Email</small>
+          <strong>frohmanbenjamin@gmail.com</strong>
+        </a>
+        <a href="https://github.com/BenFrohman" rel="noopener">
+          <small>GitHub</small>
+          <strong>BenFrohman</strong>
+        </a>
+        <a href="https://x.com/Investor0x" rel="noopener">
+          <small>X</small>
+          <strong>@Investor0x</strong>
+        </a>
+        <div class="cell">
+          <small>Locus</small>
+          <strong>Lewisville / Frisco, Texas · Remote-ready</strong>
+        </div>
+        <a href="assets/Benjamin_Frohman_Research_Resume.pdf">
+          <small>Resume</small>
+          <strong>Research dossier (PDF)</strong>
+        </a>
+        <div class="cell">
+          <small>Endpoints</small>
+          <strong>FSymHD.com · symplectohydronamics.com</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div class="wordmark">FSymHD</div>
+      <p>The universe does not allow fluids to break. Through the Frohmanian Tether, the nonlinearity that threatened to tear the fluid becomes the mechanism of its eternal smoothness.</p>
+    </div>
+    <div>
+      <div class="tiny">Catalog</div>
+      <p><a href="papers/triple-regularization.html">Triple framework</a><br />
+      <a href="papers/fusion-plasma.html">Fusion plasma</a><br />
+      <a href="https://github.com/BenFrohman/NS_Millennium_Proof">Lean corpus</a></p>
+    </div>
+    <div>
+      <div class="tiny">Observatory</div>
+      <p>© <span id="year">2026</span> Benjamin Stanley Frohman. All rights reserved.<br />Living document · dual-facing · tethered.</p>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="js/field.js"></script>
+  <script defer src="js/site.js"></script>
+</body>
+</html>

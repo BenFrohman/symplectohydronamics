@@ -1,0 +1,10 @@
+.DS_Store
+.npm-cache
+node_modules
+.netlify
+.vercel
+.wrangler
+.railway
+*.log
+.idea
+.vscode

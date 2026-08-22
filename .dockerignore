@@ -1,0 +1,12 @@
+.git
+.gitignore
+.npm-cache
+.netlify
+.vercel
+.wrangler
+.railway
+README.md
+Dockerfile
+nginx.conf
+.dockerignore
+*.log
