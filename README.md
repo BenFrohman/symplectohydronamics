@@ -43,7 +43,11 @@ www.fsymhd.com               CNAME          → <host>
 
 `CNAME` currently lists `symplectohydronamics.com` as the GitHub Pages / Netlify primary. Add `fsymhd.com` as a domain alias on the same project so both resolve to one deployment.
 
-Until registrar DNS is attached, the public preview URL is the live site.
+**Live public URL (free Railway host):** [https://fsymhd-production.up.railway.app](https://fsymhd-production.up.railway.app)
+
+Custom domains `fsymhd.com` and `www.fsymhd.com` are already attached on Railway. After you register them, create CNAME records to the Railway targets shown in `railway domain status`. The free plan allows two custom domains per service; add `symplectohydronamics.com` / `www` after a plan upgrade, or point both names at the same Railway service from a DNS provider that supports aliasing.
+
+Until those `.com` names are registered, the Railway URL is the public observatory. The site is hostname-aware: visiting a host containing `fsymhd` elevates the compact identity; otherwise it elevates Symplectohydrodynamics. Both names always appear as dual-facing endpoints.
 
 ## Update workflow
 
