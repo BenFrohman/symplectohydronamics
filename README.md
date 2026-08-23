@@ -71,7 +71,9 @@ Verification TXT (Railway SSL):
 - `_railway-verify.www.fsymhd.com` → `railway-verify=94292ff33c0329594f726434085cad015685c17f8473ebeadbe9e2417a02da01`
 - `_railway-verify.www.symplectohydronamics.com` → `railway-verify=c382d0885c9520c84eccdd580686ee88eb03ed52a9d1a654db3c76dfd1520f0d`
 
-Apex (`fsymhd.com` / `symplectohydronamics.com`) can ALIAS/ANAME to the same targets once the registrar allows a third/fourth domain, or after a Railway plan upgrade. Until registration, the Railway URL is the public observatory.
+**Buy plan (≤ $50, skip `.ai`):** register **both `.com` names for 2 years** at an at-cost registrar (Cloudflare ≈ $10.46/name/year → **≈ $41.84** for two names × two years; Porkbun similar, ≈ $44). That stays under $50 and locks the names through 2028. Do not buy `.ai` on this budget (≈ $160–$200 up front for one name, two-year minimum). Register at [Cloudflare Registrar](https://dash.cloudflare.com/?to=/:account/domains/register) or [Porkbun](https://porkbun.com) — Railway’s domain checkout is convenient but usually not the cheapest.
+
+After purchase, point `www` CNAME records as above. Apex (`fsymhd.com` / `symplectohydronamics.com`) can ALIAS/ANAME to the same targets once extra domain slots exist, or URL-forward at the registrar. Until registration, the Railway URL is the public observatory.
 
 The site is hostname-aware: a host containing `fsymhd` elevates the compact identity; otherwise it elevates Symplectohydrodynamics. Both names always appear as dual-facing endpoints.
 
@@ -82,6 +84,23 @@ The site is hostname-aware: a host containing `fsymhd` elevates the compact iden
 3. `git push origin main`.
 4. Redeploy the static directory to the public host.
 
-Contact: `frohmanbenjamin@gmail.com` · GitHub `BenFrohman` · X `@Investor0x`
+## Copyright and license
 
-© 2026 Benjamin Stanley Frohman. All rights reserved.
+**Copyright © 2026 Benjamin Stanley Frohman.** Original author of this observatory and of the FSymHD instruments.
+
+Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. Commercial use is allowed so long as Benjamin Stanley Frohman is attributed for the work and contributions.
+
+Suggested credit:
+
+```
+Frohmanian Symplectohydrodynamics (FSymHD)
+Original author: Benjamin Stanley Frohman
+ORCID: https://orcid.org/0009-0006-7068-3718
+License: CC BY 4.0
+```
+
+Human-readable terms: [license.html](license.html). Legal files: [LICENSE](LICENSE), [NOTICE](NOTICE), [CITATION.cff](CITATION.cff).
+
+JAMA / JNS papers linked from the prior-research tab remain under their publishers’ copyrights. The resume PDF is a personal CV and is not licensed for third-party commercial republication.
+
+Contact: `frohmanbenjamin@gmail.com` · GitHub `BenFrohman` · X `@Investor0x`

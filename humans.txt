@@ -1,0 +1,15 @@
+/* TEAM */
+Author: Benjamin Stanley Frohman
+Contact: frohmanbenjamin@gmail.com
+ORCID: https://orcid.org/0009-0006-7068-3718
+GitHub: https://github.com/BenFrohman
+X: https://x.com/Investor0x
+LinkedIn: https://www.linkedin.com/in/benfrohman-inv0x
+Location: Lewisville / Frisco, Texas
+
+/* SITE */
+Name: Frohmanian Symplectohydrodynamics · FSymHD
+Standards: HTML5, CSS, WebGL
+License: CC BY 4.0 — commercial use allowed with attribution to Benjamin Stanley Frohman
+License URL: https://creativecommons.org/licenses/by/4.0/
+Copyright: © 2026 Benjamin Stanley Frohman

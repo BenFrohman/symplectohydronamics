@@ -1,3 +1,4 @@
+/* Copyright (c) 2026 Benjamin Stanley Frohman. SPDX-License-Identifier: CC-BY-4.0 */
 (() => {
   const canvas = document.getElementById("field");
   if (!canvas) return;

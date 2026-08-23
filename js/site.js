@@ -1,3 +1,4 @@
+/* Copyright (c) 2026 Benjamin Stanley Frohman. SPDX-License-Identifier: CC-BY-4.0 */
 (() => {
   const host = location.hostname.toLowerCase();
   const compact = /fsymhd/.test(host);

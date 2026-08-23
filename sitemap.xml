@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://symplectohydronamics.com/</loc></url>
+  <url><loc>https://symplectohydronamics.com/license.html</loc></url>
   <url><loc>https://symplectohydronamics.com/papers/triple-regularization.html</loc></url>
   <url><loc>https://symplectohydronamics.com/papers/fusion-plasma.html</loc></url>
   <url><loc>https://fsymhd.com/</loc></url>
+  <url><loc>https://fsymhd.com/license.html</loc></url>
   <url><loc>https://fsymhd.com/papers/triple-regularization.html</loc></url>
   <url><loc>https://fsymhd.com/papers/fusion-plasma.html</loc></url>
 </urlset>

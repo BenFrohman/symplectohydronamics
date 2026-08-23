@@ -66,3 +66,12 @@
   font-weight: 500;
 }
 .reading .eq-block { font-size: 0.95em; }
+.license-colophon {
+  margin-top: 3.2em;
+  padding-top: 1.4em;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.license-colophon a { color: var(--gold-2); }

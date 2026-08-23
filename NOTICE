@@ -1,0 +1,25 @@
+Copyright (c) 2026 Benjamin Stanley Frohman.
+
+Original observatory content is licensed CC BY 4.0. See LICENSE.
+
+The following are NOT licensed CC BY 4.0 and must not be treated as
+commercially reusable under this repository’s terms:
+
+1. Peer-reviewed clinical papers linked from papers/prior-research.html
+   remain under their publishers’ copyrights (JAMA Neurology; Journal of
+   the Neurological Sciences). This site cites them; it does not relicense
+   them.
+
+2. assets/Benjamin_Frohman_Research_Resume.pdf is a personal curriculum
+   vitae. Contact data in it is not licensed for third-party commercial
+   republication.
+
+3. Third-party libraries and fonts retain their own licenses, including:
+   - KaTeX (MIT) — https://github.com/KaTeX/KaTeX
+   - IBM Plex (SIL OFL 1.1) and Syne / Cormorant Garamond (SIL OFL 1.1)
+     as served by Google Fonts
+   - nginx (BSD-2-Clause) in the container image
+
+Trademarks: “Frohmanian,” “FSymHD,” and “Symplectohydrodynamics” identify
+Benjamin Stanley Frohman’s research program. CC BY 4.0 does not grant
+trademark rights. Do not imply endorsement.
