@@ -118,8 +118,13 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .dual b { color: var(--paper); font-weight: 500; }
 .dual .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-.hire-link {
+.top-actions {
   justify-self: end;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.hire-link {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.3em;

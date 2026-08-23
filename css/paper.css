@@ -75,3 +75,13 @@
   color: var(--muted);
 }
 .license-colophon a { color: var(--gold-2); }
+.scope-banner {
+  border: 1px solid var(--hair);
+  padding: 16px 18px;
+  margin: 8px 0 28px;
+  color: #d7d0c2;
+  font-size: 16px;
+  line-height: 1.55;
+  background: rgba(12,13,20,0.55);
+}
+.scope-banner strong { color: var(--gold-2); }

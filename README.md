@@ -14,7 +14,8 @@ This repository is kept **private** as the working archive. The compiled static 
 | Path | Role |
 | --- | --- |
 | `index.html` | Observatory: tethered vorticity field, framework, catalog, consulting, contact |
-| `papers/` | Reading rooms for the Triple Regularization roadmap and Fusion Plasma control paper |
+| `papers/` | Reading rooms for the Triple Regularization roadmap, Fusion Plasma control paper, and the research library |
+| `library/` | Hosted PDFs and Lean artefacts from the 2026 formalization and extrapolated findings |
 | `archive/` | Original `.docx` source instruments |
 | `assets/` | Mark, field stills, resume PDF, favicon |
 | `css/`, `js/` | Field shader, dual-host identity, inquiry mailer |
