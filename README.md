@@ -43,7 +43,21 @@ www.fsymhd.com               CNAME          → <host>
 
 `CNAME` currently lists `symplectohydronamics.com` as the GitHub Pages / Netlify primary. Add `fsymhd.com` as a domain alias on the same project so both resolve to one deployment.
 
-**Live public URL (free Railway host):** [https://fsymhd-production.up.railway.app](https://fsymhd-production.up.railway.app)
+**Live public URL (Railway):** [https://fsymhd-production.up.railway.app](https://fsymhd-production.up.railway.app)
+
+Railway service `fsymhd` (project `fsymhd`, environment `production`) is configured as:
+
+| Setting | Value |
+| --- | --- |
+| Builder | Dockerfile (`Dockerfile`) |
+| Health check | `GET /` (100s timeout) |
+| Restart | `ALWAYS` |
+| Sleep | off |
+| Public port | `8080` (nginx) |
+| CDN | on — HTML force-cache, 4h TTL, purge-all on deploy |
+| Config as code | `railway.json` |
+
+Connect the private GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the [Railway GitHub App](https://github.com/apps/railway/installations/new) access to that repository. Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
 
 Both brand names are already attached on the Railway service (free plan = two custom domains). After you register the `.com` names, add these DNS records:
 
