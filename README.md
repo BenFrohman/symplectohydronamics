@@ -57,7 +57,7 @@ Railway service `fsymhd` (project `fsymhd`, environment `production`) is configu
 | CDN | on — HTML force-cache, 4h TTL, purge-all on deploy |
 | Config as code | `railway.json` |
 
-Connect the private GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the [Railway GitHub App](https://github.com/apps/railway/installations/new) access to that repository. Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
+Connect the private GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the Railway GitHub App access to that repository: [GitHub → Settings → Applications → Installed GitHub Apps](https://github.com/settings/installations). Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
 
 Both brand names are already attached on the Railway service (free plan = two custom domains). After you register the `.com` names, add these DNS records:
 
