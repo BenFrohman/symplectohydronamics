@@ -10,3 +10,7 @@
 README.md
 .dockerignore
 *.log
+library/
+archive/
+papers/triple-regularization.html
+papers/fusion-plasma.html

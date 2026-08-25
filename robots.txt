@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /library/
+Disallow: /archive/
+Disallow: /papers/triple-regularization.html
+Disallow: /papers/fusion-plasma.html
 
 Sitemap: https://symplectohydronamics.com/sitemap.xml

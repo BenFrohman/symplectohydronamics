@@ -13,10 +13,10 @@ This repository is kept **private** as the working archive. The compiled static 
 
 | Path | Role |
 | --- | --- |
-| `index.html` | Observatory: tethered vorticity field, framework, catalog, consulting, contact |
-| `papers/` | Reading rooms for the Triple Regularization roadmap, Fusion Plasma control paper, and the research library |
-| `library/` | Hosted PDFs and Lean artefacts from the 2026 formalization and extrapolated findings |
-| `archive/` | Original `.docx` source instruments |
+| `index.html` | Observatory: tethered vorticity field, framework, GitHub catalog, consulting, contact |
+| `papers/library.html` | GitHub corpus: what each repo implements, and which are personal logs |
+| `papers/prior-research.html` | Off-front-page JAMA / JNS table (publisher copyrights) |
+| `library/`, `archive/` | Working-tree manuscripts; **not** shipped or served on the public site |
 | `assets/` | Mark, field stills, resume PDF, favicon |
 | `css/`, `js/` | Field shader, dual-host identity, inquiry mailer |
 
