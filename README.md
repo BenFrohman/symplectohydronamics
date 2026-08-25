@@ -1,11 +1,6 @@
 # Symplectohydrodynamics · FSymHD
 
-Private source of the public observatory for **Benjamin Stanley Frohman** — research catalog, living timeline, consulting aperture, and dual-facing endpoints:
-
-- `symplectohydronamics.com`
-- `FSymHD.com`
-
-Both hostnames serve the same instrument. The UI swaps which name is primary.
+Private source of the public observatory for **Benjamin Stanley Frohman** — research catalog, living timeline, consulting aperture, hosted at **`symplectorilabs.com`**.
 
 This repository is kept **private** as the working archive. The compiled static site is deployed to a public URL. That split — private git, public hosting — is standard for a personal research studio.
 
@@ -18,7 +13,7 @@ This repository is kept **private** as the working archive. The compiled static 
 | `papers/prior-research.html` | Off-front-page JAMA / JNS table (publisher copyrights) |
 | `library/`, `archive/` | Working-tree manuscripts; **not** shipped or served on the public site |
 | `assets/` | Mark, field stills, resume PDF, favicon |
-| `css/`, `js/` | Field shader, dual-host identity, inquiry mailer |
+| `css/`, `js/` | Field shader, orbit nav, inquiry mailer |
 
 No build step. Static HTML, CSS, WebGL.
 
@@ -31,18 +26,9 @@ python3 -m http.server 4173
 
 Open `http://127.0.0.1:4173`.
 
-## Dual domains
+## Domain
 
-After the `.com` names are registered, point **both** apex and `www` records at the public host:
-
-```
-symplectohydronamics.com     CNAME or ALIAS → <host>
-www.symplectohydronamics.com CNAME          → <host>
-fsymhd.com                   CNAME or ALIAS → <host>
-www.fsymhd.com               CNAME          → <host>
-```
-
-`CNAME` currently lists `symplectohydronamics.com` as the GitHub Pages / Netlify primary. Add `fsymhd.com` as a domain alias on the same project so both resolve to one deployment.
+Public host: **`symplectorilabs.com`** (Porkbun). Railway also keeps the generated URL until DNS is verified.
 
 **Live public URL (Railway):** [https://fsymhd-production.up.railway.app](https://fsymhd-production.up.railway.app)
 
@@ -60,23 +46,19 @@ Railway service `fsymhd` (project `fsymhd`, environment `production`) is configu
 
 Connect the private GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the Railway GitHub App access to that repository: [GitHub → Settings → Applications → Installed GitHub Apps](https://github.com/settings/installations). Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
 
-Both brand names are already attached on the Railway service (free plan = two custom domains). After you register the `.com` names, add these DNS records:
+Custom domains on Railway service `fsymhd` (one name, apex + www):
 
 | Host | Type | Target |
 | --- | --- | --- |
-| `www.fsymhd.com` | CNAME | `bdlyd2jn.up.railway.app` |
-| `www.symplectohydronamics.com` | CNAME | `k8s670ui.up.railway.app` |
+| `www` | CNAME | `dz5997hy.up.railway.app` |
+| `@` (apex) | ALIAS or CNAME | `ywutj0o3.up.railway.app` |
 
 Verification TXT (Railway SSL):
 
-- `_railway-verify.www.fsymhd.com` → `railway-verify=94292ff33c0329594f726434085cad015685c17f8473ebeadbe9e2417a02da01`
-- `_railway-verify.www.symplectohydronamics.com` → `railway-verify=c382d0885c9520c84eccdd580686ee88eb03ed52a9d1a654db3c76dfd1520f0d`
+- `_railway-verify.www` → `railway-verify=d073c7d326fd5e17a4d80d759586ec8e08e758a4f26c0569d01f4940e0fd19dd`
+- `_railway-verify` → `railway-verify=93ac40b3011e8734152db7bed52111ca6872673fad59c1c31dd069f33b75a7f8`
 
-**Buy plan (≤ $50, skip `.ai`):** register **both `.com` names for 2 years** at an at-cost registrar (Cloudflare ≈ $10.46/name/year → **≈ $41.84** for two names × two years; Porkbun similar, ≈ $44). That stays under $50 and locks the names through 2028. Do not buy `.ai` on this budget (≈ $160–$200 up front for one name, two-year minimum). Register at [Cloudflare Registrar](https://dash.cloudflare.com/?to=/:account/domains/register) or [Porkbun](https://porkbun.com) — Railway’s domain checkout is convenient but usually not the cheapest.
-
-After purchase, point `www` CNAME records as above. Apex (`fsymhd.com` / `symplectohydronamics.com`) can ALIAS/ANAME to the same targets once extra domain slots exist, or URL-forward at the registrar. Until registration, the Railway URL is the public observatory.
-
-The site is hostname-aware: a host containing `fsymhd` elevates the compact identity; otherwise it elevates Symplectohydrodynamics. Both names always appear as dual-facing endpoints.
+Set these at Porkbun (account Inv0x) under **DNS** for `symplectorilabs.com`. Until they verify, the Railway URL is the public observatory.
 
 ## Update workflow
 
