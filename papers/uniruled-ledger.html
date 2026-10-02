@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uniruled fourfold ledger · FSymHD</title>
+  <meta name="description" content="Checked Mukai arithmetic and numerical notes from BenFrohman/uniruled-fourfolds. Not a proof of the Hodge conjecture, Navier–Stokes regularity, or P versus NP." />
+  <meta name="author" content="Benjamin Stanley Frohman" />
+  <link rel="canonical" href="https://symplectorilabs.com/papers/uniruled-ledger.html" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/observatory.css" />
+  <link rel="stylesheet" href="../css/paper.css" />
+  <style>
+    canvas.plot { width: 100%; height: 280px; background: #0c0e14; border: 1px solid rgba(212,175,55,.25); display: block; margin: 12px 0 28px; }
+    .note { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: #c8c2b4; }
+  </style>
+</head>
+<body>
+  <canvas id="field" class="field" aria-hidden="true"></canvas>
+  <div class="vignette"></div>
+  <article class="reading">
+    <a class="back" href="../index.html#catalog">← Observatory</a>
+    <header class="meta">
+      <div class="sec-label">Ledger · 2026-10-01</div>
+      <h1>What the uniruled-fourfold repository actually checks</h1>
+      <p class="byline">Benjamin Stanley Frohman · <a href="https://github.com/BenFrohman/uniruled-fourfolds" rel="noopener">BenFrohman/uniruled-fourfolds</a> · MIT</p>
+    </header>
+    <p class="scope-banner">These canvases recompute the formulas. They are not Chern numbers, not a Hall state, and not a solution of a Clay problem. The Hodge conjecture, three-dimensional Navier–Stokes regularity, and P versus NP remain open.</p>
+
+    <h2>Proved in Lean, without Mathlib</h2>
+    <table>
+      <thead><tr><th>Name</th><th>Statement</th></tr></thead>
+      <tbody>
+        <tr><td><code>poly_composition_coherence</code></td><td>If f(n) ≤ n^a+a and g(m) ≤ m^b+b, then g(f(n)) ≤ n^k+k for k = ab+(a+1)^b+b.</td></tr>
+        <tr><td><code>suggested_degree_fails</code></td><td>The smaller exponent ab+b+1 fails: (1^2+2)^2+2 = 11 and 1^7+7 = 8.</td></tr>
+        <tr><td><code>id_difference_quotient_rat</code></td><td>For a nonzero rational h, ((x+h)−x)/h = 1. Closed by grind. The real-number lemma deriv_id is not in this Lean.</td></tr>
+        <tr><td><code>vacuous_separation_false</code></td><td>If both machine predicates are True, the stated P-versus-NP separation is false.</td></tr>
+        <tr><td><code>draft_cook_false</code></td><td>If “satisfiable” is defined as True, the drafted Cook–Levin statement is false.</td></tr>
+        <tr><td><code>theta_does_not_preserve_sign</code></td><td>The constants 1 and −1 match in absolute value, and only one is nonnegative.</td></tr>
+        <tr><td><code>draft_chern_ignores_gauge</code></td><td>A Chern class defined as the constant 1 equals 1. The gauge is unused.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Gaussian on a fixed grid</h2>
+    <p>A standard Gaussian, σ = 1, translated from center −1.5 toward 1.44 on a 40×40 grid from −5 to 5. <code>np.gradient</code> uses spacing 1. The grid spacing is 0.256. The sum is noise only while the mass is centered.</p>
+    <canvas id="gauss" class="plot" width="900" height="280"></canvas>
+    <p class="note" id="gauss-readout"></p>
+
+    <h2>Duffing energy is not invariant</h2>
+    <p>The update is ḃ = a, ȧ = b − b³ − 0.35 a + 0.4 cos(1.2 t), from (−1.5, 0.5). The quantity a²/2 − b²/2 + b⁴/4 is plotted. It is not a cubic fourfold.</p>
+    <canvas id="duff" class="plot" width="900" height="280"></canvas>
+    <p class="note" id="duff-readout"></p>
+
+    <h2>Eight-variable 3-SAT, counted</h2>
+    <p>Forty random formulas, exhaustive search. The draft probabilities 0.92, 0.45, and 0.05 ignore the clauses.</p>
+    <canvas id="sat" class="plot" width="900" height="280"></canvas>
+
+    <h2>Taylor–Green, one bad step</h2>
+    <p>The initial field sin(x)cos(y)cos(z), −cos(x)sin(y)cos(z), 0 has discrete divergence about 10⁻¹⁵ when the grid spacing is included. The submitted update has no pressure and no z-derivative. After 100 steps the divergence of the two updated components has maximum 0.197. That is not a blow-up theorem.</p>
+  </article>
+  <script defer src="../js/field.js"></script>
+  <script defer src="../js/site.js"></script>
+  <script>
+    function drawGaussian() {
+      const n = 40, steps = 50, sigma = 1;
+      const axis = Array.from({length: n}, (_, i) => -5 + 10 * i / (n - 1));
+      const entropy = [], grad = [];
+      for (let step = 0; step < steps; step++) {
+        const c = -1.5 + 3 * (step / steps);
+        const dens = axis.map(x => axis.map(y => Math.exp(-((x-c)**2 + (y-c)**2) / (2*sigma*sigma))));
+        let mass = 0, h = 0, sx = 0, sy = 0;
+        for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) mass += dens[i][j];
+        for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+          const p = dens[i][j] / mass;
+          h -= p * Math.log(p + 1e-15);
+          const ix = i === 0 ? dens[1][j] - dens[0][j] : i === n-1 ? dens[n-1][j] - dens[n-2][j] : (dens[i+1][j] - dens[i-1][j]) / 2;
+          const iy = j === 0 ? dens[i][1] - dens[i][0] : j === n-1 ? dens[i][n-1] - dens[i][n-2] : (dens[i][j+1] - dens[i][j-1]) / 2;
+          sx += ix; sy += iy;
+        }
+        entropy.push(h); grad.push(sx + sy);
+      }
+      const c = document.getElementById("gauss");
+      const g = c.getContext("2d");
+      g.fillStyle = "#0c0e14"; g.fillRect(0, 0, c.width, c.height);
+      const ymin = Math.min(...entropy), ymax = Math.max(...entropy);
+      g.strokeStyle = "#d4af37"; g.beginPath();
+      entropy.forEach((v, i) => {
+        const x = 40 + i * (c.width - 80) / (steps - 1);
+        const y = 30 + (1 - (v - ymin) / (ymax - ymin || 1)) * 180;
+        i ? g.lineTo(x, y) : g.moveTo(x, y);
+      });
+      g.stroke();
+      g.fillStyle = "#c8c2b4"; g.font = "14px IBM Plex Mono, monospace";
+      g.fillText("Shannon entropy of the normalized grid", 40, 24);
+      document.getElementById("gauss-readout").textContent =
+        `step 0: H=${entropy[0].toFixed(6)}, sum=${grad[0].toExponential(3)} · ` +
+        `step 25: H=${entropy[25].toFixed(6)}, sum=${grad[25].toExponential(3)} · ` +
+        `step 49: H=${entropy[49].toFixed(6)}, sum=${grad[49].toExponential(3)}`;
+    }
+    function drawDuffing() {
+      let b = -1.5, a = 0.5, t = 0, dt = 0.01;
+      const e = [];
+      for (let i = 0; i < 2000; i++) {
+        const db = a;
+        const da = b - b**3 - 0.35 * a + 0.4 * Math.cos(1.2 * t);
+        b += db * dt; a += da * dt; t += dt;
+        e.push(0.5*a*a - 0.5*b*b + 0.25*b**4);
+      }
+      const c = document.getElementById("duff");
+      const g = c.getContext("2d");
+      g.fillStyle = "#0c0e14"; g.fillRect(0, 0, c.width, c.height);
+      const ymin = Math.min(...e), ymax = Math.max(...e);
+      g.strokeStyle = "#e8d7a2"; g.beginPath();
+      e.forEach((v, i) => {
+        if (i % 4) return;
+        const x = 40 + (i / 1999) * (c.width - 80);
+        const y = 30 + (1 - (v - ymin) / (ymax - ymin || 1)) * 210;
+        i ? g.lineTo(x, y) : g.moveTo(x, y);
+      });
+      g.stroke();
+      g.fillStyle = "#c8c2b4"; g.font = "14px IBM Plex Mono, monospace";
+      g.fillText("a²/2 − b²/2 + b⁴/4", 40, 24);
+      document.getElementById("duff-readout").textContent =
+        `start ${e[0].toFixed(6)} · end ${e[e.length-1].toFixed(6)}`;
+    }
+    function drawSat() {
+      const rows = [[3.0, 0.975, 0.92], [4.2, 0.800, 0.45], [5.0, 0.325, 0.05]];
+      const c = document.getElementById("sat");
+      const g = c.getContext("2d");
+      g.fillStyle = "#0c0e14"; g.fillRect(0, 0, c.width, c.height);
+      g.font = "14px IBM Plex Mono, monospace";
+      rows.forEach((r, i) => {
+        const x = 80 + i * 260;
+        g.fillStyle = "#d4af37";
+        g.fillRect(x, 230 - r[1] * 180, 50, r[1] * 180);
+        g.fillStyle = "#6e6454";
+        g.fillRect(x + 64, 230 - r[2] * 180, 50, r[2] * 180);
+        g.fillStyle = "#c8c2b4";
+        g.fillText("ratio " + r[0], x, 256);
+      });
+      g.fillStyle = "#d4af37"; g.fillRect(620, 40, 16, 16);
+      g.fillStyle = "#c8c2b4"; g.fillText("exhaustive, 8 variables", 644, 53);
+      g.fillStyle = "#6e6454"; g.fillRect(620, 68, 16, 16);
+      g.fillStyle = "#c8c2b4"; g.fillText("draft probability", 644, 81);
+    }
+    drawGaussian(); drawDuffing(); drawSat();
+  </script>
+</body>
+</html>
