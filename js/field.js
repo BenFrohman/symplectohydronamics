@@ -143,12 +143,6 @@
     gl.uniform1f(uScroll, s);
     gl.uniform2f(uMouse, mouse.x, mouse.y);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
-    const M = Math.tanh(0.55 + 0.45 * Math.sin(t * 0.35));
-    const el = document.getElementById("hud-m");
-    if (el) el.textContent = M.toFixed(4);
-    const st = document.getElementById("hud-state");
-    if (st) st.textContent = M < 0.98 ? "TETHERED" : "PLATEAU";
     if (!reduced) raf = requestAnimationFrame(frame);
   }
   raf = requestAnimationFrame(frame);
