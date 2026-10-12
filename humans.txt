@@ -11,6 +11,6 @@ Location: Lewisville / Frisco, Texas
 /* SITE */
 Name: Frohmanian Symplectohydrodynamics · FSymHD
 Standards: HTML5, CSS, WebGL
-License: CC BY 4.0 — commercial use allowed with attribution to Benjamin Stanley Frohman
-License URL: https://creativecommons.org/licenses/by/4.0/
+License: Apache-2.0 — commercial use allowed with attribution to Benjamin Stanley Frohman
+License URL: https://www.apache.org/licenses/LICENSE-2.0
 Copyright: © 2026 Benjamin Stanley Frohman

@@ -9,8 +9,8 @@ authors:
     orcid: "https://orcid.org/0009-0006-7068-3718"
     email: frohmanbenjamin@gmail.com
     affiliation: A2Zweb 3
-license: CC-BY-4.0
-license-url: "https://creativecommons.org/licenses/by/4.0/"
+license: Apache-2.0
+license-url: "https://www.apache.org/licenses/LICENSE-2.0"
 copyright: "© 2026 Benjamin Stanley Frohman"
 url: "https://symplectorilabs.com"
 repository-code: "https://github.com/BenFrohman/symplectohydronamics"

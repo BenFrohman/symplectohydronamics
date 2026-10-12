@@ -1,4 +1,4 @@
-/* Copyright (c) 2026 Benjamin Stanley Frohman. SPDX-License-Identifier: CC-BY-4.0 */
+/* Copyright (c) 2026 Benjamin Stanley Frohman. SPDX-License-Identifier: Apache-2.0 */
 (() => {
   document.documentElement.dataset.face = "symplectori";
 

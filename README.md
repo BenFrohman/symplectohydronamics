@@ -71,7 +71,7 @@ Set these at Porkbun (account Inv0x) under **DNS** for `symplectorilabs.com`. Un
 
 **Copyright © 2026 Benjamin Stanley Frohman.** Original author of this observatory and of the FSymHD instruments.
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. Commercial use is allowed so long as Benjamin Stanley Frohman is attributed for the work and contributions.
+Licensed under **[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)**. Commercial use is allowed so long as Benjamin Stanley Frohman is attributed for the work and contributions.
 
 Suggested credit:
 
@@ -79,7 +79,7 @@ Suggested credit:
 Frohmanian Symplectohydrodynamics (FSymHD)
 Original author: Benjamin Stanley Frohman
 ORCID: https://orcid.org/0009-0006-7068-3718
-License: CC BY 4.0
+License: Apache-2.0
 ```
 
 Human-readable terms: [license.html](license.html). Legal files: [LICENSE](LICENSE), [NOTICE](NOTICE), [CITATION.cff](CITATION.cff).

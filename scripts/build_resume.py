@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Benjamin Frohman research resume PDF."""
+"""Build Benjamin Stanley Frohman research resume PDF."""
 from pathlib import Path
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
@@ -175,7 +175,7 @@ def build():
         rightMargin=0.7 * inch,
         topMargin=0.55 * inch,
         bottomMargin=0.5 * inch,
-        title="Benjamin Frohman — Research Resume",
+        title="Benjamin Stanley Frohman — Research Resume",
         author="Benjamin Stanley Frohman",
     )
     doc.build(story)

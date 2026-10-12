@@ -1,9 +1,14 @@
 Copyright (c) 2026 Benjamin Stanley Frohman.
+ORCID: https://orcid.org/0009-0006-7068-3718
 
-Original observatory content is licensed CC BY 4.0. See LICENSE.
+As of this commit, original observatory content by Benjamin Stanley Frohman
+is offered under the Apache License, Version 2.0. See LICENSE.
 
-The following are NOT licensed CC BY 4.0 and must not be treated as
-commercially reusable under this repository’s terms:
+Copies of that original content already received under CC BY 4.0 keep that
+grant. This commit does not revoke it and does not change any Zenodo record.
+
+The following are NOT licensed under the Apache License, Version 2.0, and
+must not be treated as reusable under this repository’s terms:
 
 1. Peer-reviewed clinical papers linked from papers/prior-research.html
    remain under their publishers’ copyrights (JAMA Neurology; Journal of
@@ -21,5 +26,5 @@ commercially reusable under this repository’s terms:
    - nginx (BSD-2-Clause) in the container image
 
 Trademarks: “Frohmanian,” “FSymHD,” and “Symplectohydrodynamics” identify
-Benjamin Stanley Frohman’s research program. CC BY 4.0 does not grant
+Benjamin Stanley Frohman’s research program. The Apache License does not grant
 trademark rights. Do not imply endorsement.
