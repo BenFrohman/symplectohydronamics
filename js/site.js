@@ -1,6 +1,25 @@
 /* Copyright (c) 2026 Benjamin Stanley Frohman. SPDX-License-Identifier: Apache-2.0 */
 (() => {
-  document.documentElement.dataset.face = "symplectori";
+  const host = location.hostname.toLowerCase();
+  const compact = /fsymhd/.test(host);
+  document.documentElement.dataset.face = compact ? "fsymhd" : "symplecto";
+  const word = document.getElementById("brand-word");
+  const sigil = document.getElementById("brand-sigil");
+  const dualA = document.getElementById("dual-a");
+  const dualB = document.getElementById("dual-b");
+  if (word && sigil) {
+    if (compact) {
+      sigil.textContent = "FSymHD";
+      word.textContent = "Symplectohydrodynamics";
+    } else {
+      sigil.textContent = "Symplectohydrodynamics";
+      word.textContent = "FSymHD · Observatory";
+    }
+  }
+  if (dualA && dualB) {
+    dualA.innerHTML = compact ? "<b>FSymHD.com</b>" : "<b>symplectohydronamics.com</b>";
+    dualB.innerHTML = compact ? "symplectohydronamics.com" : "FSymHD.com";
+  }
 
   const sections = [...document.querySelectorAll("main section[id], .hero")];
   const dots = [...document.querySelectorAll(".orbit-nav a")];
