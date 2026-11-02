@@ -41,7 +41,7 @@
     </header>
 
     <p>This observatory does not host PDF manuscripts. Source and formalization live on GitHub. Some repositories are meant for other people to clone, build, and cite. Others are personal documentation of builds and process — kept so the author can track provenance — and are marked as such.</p>
-    <p class="scope-banner">Honest scope. The Lean corpus is a <strong>priority-preserving formalization and geometric architecture</strong>. It contains novel definitions, schematic skeletons, and remaining analytic work. It does <em>not</em> claim a completed, kernel-closed solution of the Clay Navier–Stokes Millennium Problem. Read the GitHub README on the Lean repo before citing a “proof.”</p>
+    <p class="scope-banner">Honest scope. The Lean corpus is a <strong>priority-preserving formalization and geometric architecture</strong>. It contains a kernel-closed geometric tether, a proved comparison ceiling, and a reduction to one named open estimate. It does <em>not</em> claim a completed, kernel-closed solution of the Clay Navier–Stokes Millennium Problem. Read the GitHub README on the Lean repo before citing a “proof.”</p>
 
     <h2>I. Open-source contribution</h2>
     <p>These public repositories are the pieces a third party can actually use: clone, build, fork, cite.</p>
@@ -58,7 +58,7 @@
         <tr>
           <td><a href="https://github.com/BenFrohman/NS_Millennium_Proof" rel="noopener"><strong>NS_Millennium_Proof</strong></a><br />Lean 4 · Apache-2.0 · CI</td>
           <td>Frohmanian Symplectic Tether as a two-layer Lean 4 project: geometric tether on coadjoint orbits (<code>Modules/SymplecticTether.lean</code>, <code>Modules/ArnoldGeometric.lean</code>) and an analytic tethered Lyapunov / independent-majorant layer (<code>Modules/TetheredLyapunov.lean</code>, <code>Modules/IndependentMajorant.lean</code>, <code>Modules/GlobalRegularity.lean</code>). Blueprint, LaTeX↔Lean map, <code>CITATION.cff</code>.</td>
-          <td>A buildable formalization artifact with reusable lemmas under <code>ForMathlib/</code> following the hygiene pattern of Tao’s PFR project — intended for eventual Mathlib upstreaming. Not a finished Clay proof; remaining analytic holes are marked <code>sorry</code>.</td>
+          <td>A buildable formalization artifact with reusable lemmas under <code>ForMathlib/</code> following the hygiene pattern of Tao’s PFR project — intended for eventual Mathlib upstreaming. Not a finished Clay proof. The active build is sorry-free. The open step is the hypothesis <code>DirectionCurvatureBound</code> (the cubic depletion bound), not a <code>sorry</code>. Beale–Kato–Majda is the continuation criterion <code>PeriodicBKMContinuation</code>. The scaffold is on the <a href="../index.html#scaffold">observatory</a>.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/BenFrohman/frohmanian-ns-symplectic-tether" rel="noopener"><strong>frohmanian-ns-symplectic-tether</strong></a><br />Apache-2.0</td>
