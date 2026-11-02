@@ -66,7 +66,8 @@
       float vort = f1 + 0.75 * f2 + 0.6 * f3;
 
       float spike = pow(max(vort, 0.0), 2.2);
-      float bound = 0.72 + 0.08 * tanh(sin(t * 0.4));
+      float sbt = sin(t * 0.4);
+      float bound = 0.72 + 0.08 * (exp(2.0 * sbt) - 1.0) / (exp(2.0 * sbt) + 1.0);
       float tether = smoothstep(bound, bound - 0.22, spike);
       float gold = spike * tether;
       float plasma = vort * (1.0 - 0.35 * tether);
@@ -99,6 +100,10 @@
 
   const vs = compile(gl.VERTEX_SHADER, vert);
   const fs = compile(gl.FRAGMENT_SHADER, frag);
+  if (!vs || !fs) {
+    canvas.style.background = "#07070c url('assets/vorticity-field.jpg') center/cover";
+    return;
+  }
   const prog = gl.createProgram();
   gl.attachShader(prog, vs);
   gl.attachShader(prog, fs);
