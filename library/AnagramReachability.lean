@@ -3,8 +3,6 @@
   Author: Benjamin Stanley Frohman (@Investor0x / GitHub BenFrohman)
 -/
 
-import Mathlib.Data.Fin.Basic
-import Mathlib.Tactic
 
 /-- Bounded letter counts. -/
 structure Counts where
@@ -39,7 +37,7 @@ end Counts
 def stateCard : Nat := 6 * 5^3 * 4^2 * 3^2 * 2^5
 
 theorem stateCard_eq : stateCard = 3456000 := by
-  native_decide
+  decide +kernel
 
 /-- Simple inductive reachability. -/
 inductive Reachable : Counts → Prop where

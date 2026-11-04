@@ -1,5 +1,7 @@
 # Symplectohydrodynamics · FSymHD
 
+[![Lean certificate](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/certify.yml) [![Lean 4](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/lean.yml/badge.svg)](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/lean.yml)
+
 Private source of the public observatory for **Benjamin Stanley Frohman** — research catalog, living timeline, consulting aperture, hosted at **`symplectorilabs.com`**.
 
 This repository is kept **private** as the working archive. The compiled static site is deployed to a public URL. That split — private git, public hosting — is standard for a personal research studio.
