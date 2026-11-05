@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Symplectic Tether Sim — exact Navier–Stokes flows on T³</title>
+<style>
+html,body{margin:0;height:100%;background:#151517;color:#b9c2a8;font-family:'Courier New',monospace;overflow:hidden;touch-action:none}
+.hud{position:absolute;left:14px;right:14px;font-size:11.5px;line-height:1.55;letter-spacing:.5px;pointer-events:none;text-shadow:0 0 4px #000}
+#top{top:12px}#bot{bottom:12px}h1{font-size:13px;font-weight:normal;letter-spacing:2px;margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid #556;display:inline-block;color:#d9c79a}
+.v{color:#e8d9a8}.ok{color:#8fd18f}.bad{color:#e07a7a}.note{color:#878a95;font-size:10px}
+#ctl{position:absolute;right:12px;top:12px;background:rgba(20,20,24,.85);border:1px solid #445;padding:8px;font-size:11px;border-radius:4px}
+#ctl input{width:120px;vertical-align:middle}#ctl select,#ctl button{background:#222;color:#ddd;border:1px solid #555;font:inherit}
+@media(max-width:600px){#ctl{top:150px}}
+</style></head><body>
+<div class="hud" id="top"><h1>SYMPLECTIC TETHER SIM — EXACT NS FLOW</h1>
+<div>FLOW: <span class="v" id="mname"></span> on T³=[0,2π)³ (periodic)</div>
+<div>STATUS: <span id="status">computing…</span></div>
+<div>INCOMPRESSIBILITY: <span id="divs">…</span></div></div>
+<div id="ctl"><div>mode <select id="mode"><option value="abc">ABC (Beltrami)</option><option value="tg">Taylor–Green</option></select></div>
+<div>ν <input id="nu" type="range" min="0" max="0.5" step="0.005" value="0.05"><span id="nuv"></span></div>
+<div>speed <input id="spd" type="range" min="1" max="10" step="1" value="2"><span id="spdv"></span></div>
+<div>t<sub>max</sub> <select id="tmax"><option>30</option><option selected>60</option><option>120</option><option value="1e9">∞</option></select> <label><input id="loop" type="checkbox" checked>loop</label></div>
+<div><label><input id="vl" type="checkbox" checked>vortex lines</label> <label><input id="pts" type="checkbox" checked>particles</label></div>
+<div><button id="rst">reset</button> <button id="pause">pause</button></div></div>
+<div class="hud" id="bot">
+<div>TIME t: <span class="v" id="t"></span></div>
+<div>MAX |ω| (grid): <span class="v" id="wmax"></span></div>
+<div>E = ½∫|u|²: <span class="v" id="E"></span> <span class="note" id="Ea"></span></div>
+<div>Z = ½∫|ω|²: <span class="v" id="Z"></span> <span class="note" id="Za"></span></div>
+<div>HELICITY ∫u·ω: <span class="v" id="H"></span> <span class="note" id="Ha"></span></div>
+<div>dE/dt + 2νZ: <span class="v" id="res"></span></div>
+<div>ACTIVE VERTICES: <span class="v" id="nv"></span> (full 25³ lattice, cube [0,2π]³ at t=0)</div>
+<div class="note">Exact special solution of incompressible NS on the periodic torus (grid 24³, 6th-order FD; particles by RK4, color = |ω| at particle, gold→mauve; particles drawn wrapped into one period cell). Vortex lines: 40 integral curves of ω (RK4 in arclength, colored by |ω|). It demonstrates the energy identity for one explicit flow only — not general 3D regularity and not a proof about the Navier–Stokes problem.</div></div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script src="src/physics.js"></script>
+<script type="module">
+import * as THREE from 'three';import {TrackballControls} from 'three/addons/controls/TrackballControls.js';
+const Q=new URLSearchParams(location.search),$=id=>document.getElementById(id),P={A:1,B:1,C:1};
+let mode=Q.get('mode')||'abc',nu=+(Q.get('nu')??0.05),t=0,paused=false;const FIG=Q.has('fig'),TT=+(Q.get('t')||0),DT=1/60;
+$('mode').value=mode;$('nu').value=nu;
+const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(45,innerWidth/innerHeight,.1,200);camera.position.set(0,0,innerWidth<600?17:12);
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.setClearColor(0x151517);document.body.appendChild(renderer.domElement);
+const controls=new TrackballControls(camera,renderer.domElement);controls.rotateSpeed=2.5;controls.noPan=true;
+const L0=Physics.lattice(25),n=L0.length/3;let pos=L0.slice();
+const geo=new THREE.BufferGeometry(),dp=new Float32Array(n*3),col=new Float32Array(n*3);
+geo.setAttribute('position',new THREE.BufferAttribute(dp,3));geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+const sprite=(()=>{const c=document.createElement('canvas');c.width=c.height=32;const g=c.getContext('2d');g.beginPath();g.moveTo(16,2);g.lineTo(30,28);g.lineTo(2,28);g.fillStyle='#fff';g.fill();return new THREE.CanvasTexture(c)})();
+const ptsObj=new THREE.Points(geo,new THREE.PointsMaterial({size:.13,vertexColors:true,map:sprite,transparent:true,alphaTest:.3}));scene.add(ptsObj);const TWO_PI=2*Math.PI;
+const gold=new THREE.Color('#d8b25a'),mauve=new THREE.Color('#8e5a8c'),tmp=new THREE.Color();
+function paint(){const m=Physics.MODES[mode];let mx=1e-12;const w=new Float64Array(n);
+ for(let i=0;i<n;i++){const o=m.vort(pos[3*i],pos[3*i+1],pos[3*i+2],t,nu,P);w[i]=Math.hypot(...o);mx=Math.max(mx,w[i]);}
+ const ref=Math.max(mx,1e-9);for(let i=0;i<n;i++){tmp.copy(mauve).lerp(gold,w[i]/ref);col.set([tmp.r,tmp.g,tmp.b],3*i);for(let k=0;k<3;k++){const q=pos[3*i+k];dp[3*i+k]=q-TWO_PI*Math.floor(q/TWO_PI)-Math.PI;}}
+ geo.attributes.position.needsUpdate=geo.attributes.color.needsUpdate=true;}
+// Vortex lines: integral curves of ω/|ω| (RK4 in arclength), drawn wrapped into the period cell
+const vlGeo=new THREE.BufferGeometry(),vlObj=new THREE.LineSegments(vlGeo,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false}));scene.add(vlObj);
+const NL=40,NS=260,DS=0.06;let seeds=[];{let r=12345;const R=()=>(r=(r*16807)%2147483647)/2147483647;for(let i=0;i<NL;i++)seeds.push([R()*TWO_PI,R()*TWO_PI,R()*TWO_PI]);}
+const vlPos=new Float32Array(NL*NS*2*3),vlCol=new Float32Array(NL*NS*2*3);vlGeo.setAttribute('position',new THREE.BufferAttribute(vlPos,3));vlGeo.setAttribute('color',new THREE.BufferAttribute(vlCol,3));
+const cHot=new THREE.Color('#ffe9a8'),cCold=new THREE.Color('#b06ab0'),c2=new THREE.Color();
+function vortexLines(){const m=Physics.MODES[mode],dir=(x,y,z)=>{const o=m.vort(x,y,z,t,nu,P),n=Math.hypot(...o);return n<1e-12?[0,0,0]:[o[0]/n,o[1]/n,o[2]/n];};
+ const wr=q=>q-TWO_PI*Math.floor(q/TWO_PI);let mx=1e-12;const segs=[];
+ for(const s0 of seeds){let p=s0.slice();for(let k=0;k<NS;k++){const a=dir(...p),b=dir(p[0]+DS/2*a[0],p[1]+DS/2*a[1],p[2]+DS/2*a[2]),c=dir(p[0]+DS/2*b[0],p[1]+DS/2*b[1],p[2]+DS/2*b[2]),d=dir(p[0]+DS*c[0],p[1]+DS*c[1],p[2]+DS*c[2]);
+  const q=p.map((v,j)=>v+DS/6*(a[j]+2*b[j]+2*c[j]+d[j])),w=Math.hypot(...m.vort(...q,t,nu,P));mx=Math.max(mx,w);segs.push([p,q,w]);p=q;}}
+ segs.forEach(([p,q,w],i)=>{const sh=p.map(v=>v-wr(v));for(let j=0;j<3;j++){vlPos[6*i+j]=p[j]-sh[j]-Math.PI;vlPos[6*i+3+j]=q[j]-sh[j]-Math.PI;}
+  const out=q.some((v,j)=>v-sh[j]<0||v-sh[j]>=TWO_PI);c2.copy(cCold).lerp(cHot,w/mx);const f=out?0:1;for(let e=0;e<2;e++){vlCol[6*i+3*e]=c2.r*f;vlCol[6*i+3*e+1]=c2.g*f;vlCol[6*i+3*e+2]=c2.b*f;}});
+ vlGeo.attributes.position.needsUpdate=vlGeo.attributes.color.needsUpdate=true;}
+const fx=x=>x.toExponential(5);
+function hud(){const d=Physics.fullDiag(mode,t,nu,P),a=Physics.MODES[mode].analytic(t,nu,P);window.__diag={mode,t,nu,...d,an:a,n};
+ $('mname').textContent=Physics.MODES[mode].name;$('t').textContent=t.toFixed(3);$('wmax').textContent=d.wMax.toFixed(5);
+ $('E').textContent=fx(d.E);$('Ea').textContent='(exact '+fx(a.E)+')';$('Z').textContent=fx(d.Z);$('Za').textContent='(exact '+fx(a.Z)+')';
+ $('H').textContent=fx(d.H);$('Ha').textContent='(exact '+fx(a.H)+')';$('res').textContent=d.residual.toExponential(2)+' (rel '+d.relResidual.toExponential(1)+')';$('nv').textContent=n.toLocaleString();
+ const ok=d.relResidual<1e-3;$('status').innerHTML=(nu>0?(d.dEdt<0?'<span class="ok">E DECREASING</span>':'<span class="bad">E NOT DECREASING</span>'):'ν=0: inviscid, E constant (dE/dt='+d.dEdt.toExponential(1)+')')+' · energy identity '+(ok?'<span class="ok">VERIFIED</span>':'<span class="bad">VIOLATED</span>')+' to '+d.relResidual.toExponential(1);
+ $('divs').innerHTML='max|∇·u| = <span class="'+(d.divMax<1e-10?'ok':'bad')+'">'+d.divMax.toExponential(1)+'</span>';}
+function reset(){pos=L0.slice();t=0;vortexLines();}let spd=2;
+$('mode').onchange=e=>{mode=e.target.value;reset();};$('nu').oninput=e=>{nu=+e.target.value;$('nuv').textContent=' '+nu.toFixed(3);};$('nuv').textContent=' '+nu.toFixed(3);
+$('rst').onclick=reset;$('spd').oninput=e=>{spd=+e.target.value;$('spdv').textContent=' ×'+spd;};$('spdv').textContent=' ×2';$('vl').onchange=e=>vlObj.visible=e.target.checked;$('pts').onchange=e=>ptsObj.visible=e.target.checked;$('mode').addEventListener('change',vortexLines);$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'play':'pause';};
+window.stepTo=T=>{while(t<T-1e-9){Physics.rk4(mode,pos,n,t,DT,nu,P);t+=DT;}paint();vortexLines();hud();renderer.render(scene,camera);};
+if(FIG){$('ctl').style.display='none';const k=Math.round(TT/DT);for(let s=0;s<k;s++){Physics.rk4(mode,pos,n,t,DT,nu,P);t+=DT;}paused=true;controls.noRotate=true;camera.position.set(7,5,9);}
+let last=-1;vortexLines();function loop(){requestAnimationFrame(loop);if(!paused){for(let s=0;s<spd;s++){Physics.rk4(mode,pos,n,t,DT,nu,P);t+=DT;}const tm=+$('tmax').value;if(t>=tm){if($('loop').checked)reset();else paused=true;}}
+ paint();if(Math.abs(t-last)>=.25||last<0){hud();vortexLines();last=t;}controls.update();renderer.render(scene,camera);if(FIG)document.title='READY';}
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);controls.handleResize();});loop();
+</script></body></html>
