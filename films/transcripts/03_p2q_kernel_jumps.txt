@@ -1,0 +1,5 @@
+The particles still follow the real A-B-C fluid solution.
+
+The violet arcs illustrate transitions — an artistic idea inspired by Benjamin's P-2-Q research.
+
+This film does not calculate quantum-jump dynamics. The numbers on screen come from the fluid math alone.

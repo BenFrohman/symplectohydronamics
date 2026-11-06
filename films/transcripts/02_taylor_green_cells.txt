@@ -1,0 +1,5 @@
+Here is Taylor–Green flow: counter-rotating columns in a repeating box.
+
+The vertical lines show spin pointing along the columns.
+
+Energy decays exactly as predicted, and helicity stays zero. One exact special solution — not general regularity.

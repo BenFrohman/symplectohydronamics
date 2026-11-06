@@ -1,0 +1,7 @@
+These glowing tracers follow an exact special fluid solution called A-B-C flow on a repeating box.
+
+The gold lines show the fluid's spin — its vorticity.
+
+Viscosity steadily reduces the kinetic energy. Watch E on the readout match the exact formula.
+
+This shows one smooth special case only. It does not solve the general three-D regularity problem.

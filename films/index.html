@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Films: exact Navier–Stokes flows on T³ · Symplectori Labs</title>
-<meta name="description" content="Three 1080p films rendered from exact special solutions of the incompressible Navier–Stokes equations on the periodic torus, with live energy diagnostics.">
+<meta name="description" content="Three 1080p films rendered from exact special solutions of the incompressible Navier–Stokes equations on the periodic torus, with live energy diagnostics and spoken commentary.">
 <style>
 :root{color-scheme:dark}
 body{margin:0;background:#0b0c10;color:#c9d2bd;font-family:'Courier New',monospace;line-height:1.6}
@@ -14,20 +14,65 @@ video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 figcaption{padding:14px 18px 18px;font-size:13.5px}
 figcaption h2{font-size:15px;font-weight:normal;letter-spacing:2px;color:#ead7a0;margin:0 0 6px}
 .meta{color:#7f8a99;font-size:12px}.spec{color:#c99cff}.ok{color:#8fe0a0}
-.dl{display:inline-block;margin-top:8px;padding:4px 10px;border:1px solid #3a4258;border-radius:4px;text-decoration:none;font-size:12px}
+.dl{display:inline-block;margin:8px 8px 0 0;padding:4px 10px;border:1px solid #3a4258;border-radius:4px;text-decoration:none;font-size:12px}
+.transcript{margin-top:10px;padding:10px 12px;background:#0b0d12;border:1px solid #232838;border-radius:4px;color:#9aa4b4;font-size:12px;white-space:pre-wrap}
 .note{margin-top:34px;color:#7f8a99;font-size:12.5px;border-top:1px solid #232838;padding-top:16px}
 @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}.grid figure:first-child{grid-column:1/-1}}
 </style></head><body><main>
 <nav><a href="/">← Symplectori Labs</a><a href="/sim/">Interactive sim</a><a href="https://github.com/BenFrohman/symplectic-tether-sim">Source</a></nav>
 <h1>SYMPLECTIC TETHER · FILMS</h1>
-<p class="lede">Three 1080p films rendered from closed-form exact solutions of the incompressible Navier–Stokes equations on the periodic torus T³ = [0,2π)³. Every frame shows 15,625 particles moved with RK4 and 40 vortex lines (integral curves of ω). The on-screen HUD recomputes energy E, enstrophy Z and helicity H on a 24³ grid and shows them next to the exact values. It also shows the residual of the energy identity dE/dt + 2νZ. Across all frames of all three films, the largest relative residual is about 4.5×10⁻⁶ and max|∇·u| ≤ 4×10⁻¹⁵.</p>
+<p class="lede">Three 1080p films rendered from closed-form exact solutions of the incompressible Navier–Stokes equations on the periodic torus T³ = [0,2π)³. Every frame shows 15,625 particles moved with RK4 and 40 vortex lines (integral curves of ω). The on-screen HUD recomputes energy E, enstrophy Z and helicity H on a 24³ grid and shows them next to the exact values. It also shows the residual of the energy identity dE/dt + 2νZ. Across all frames of all three films, the largest relative residual is about 4.5×10⁻⁶ and max|∇·u| ≤ 4×10⁻¹⁵. Each player below includes optional spoken English commentary and captions (off by default for autoplay-safety; turn captions on in the player controls). Audio never autoplays.</p>
 <div class="grid">
-<figure><video controls playsinline preload="metadata" poster="01_inside_the_torus_abc_watermarked.jpg"><source src="01_inside_the_torus_abc_watermarked.mp4" type="video/mp4"></video>
-<figcaption><h2>01 · INSIDE THE TORUS</h2>The ABC (Arnold–Beltrami–Childress) flow with A=B=C=1 and ν=0.05, from t=0 to 30. Here curl u = u, and the flow decays as e^(−νt). The camera flies through 3×3×3 periodic copies of the cell. The copies are exact because the flow is 2π-periodic.<br><span class="meta">30 s · 1920×1080 · H.264 · 40 MB</span><br><a class="dl" href="01_inside_the_torus_abc_watermarked.mp4" download>Download MP4</a></figcaption></figure>
-<figure><video controls playsinline preload="metadata" poster="02_taylor_green_cells_watermarked.jpg"><source src="02_taylor_green_cells_watermarked.mp4" type="video/mp4"></video>
-<figcaption><h2>02 · TAYLOR–GREEN CELLS</h2>The 2D-in-3D Taylor–Green vortex with ν=0.05, from t=0 to 20. The vortex columns rotate in opposite directions and ω points along z. E and Z = 2E decay exactly as e^(−4νt), and the helicity is H = 0. The view is a crane move over 2×2 periodic copies.<br><span class="meta">20 s · 1920×1080 · H.264 · 26 MB</span><br><a class="dl" href="02_taylor_green_cells_watermarked.mp4" download>Download MP4</a></figcaption></figure>
-<figure><video controls playsinline preload="metadata" poster="03_p2q_kernel_jumps_watermarked.jpg"><source src="03_p2q_kernel_jumps_watermarked.mp4" type="video/mp4"></video>
-<figcaption><h2>03 · P2Q KERNEL JUMPS <span class="spec">(speculative art layer)</span></h2>The ABC flow (ν=0.05, t=0 to 25), drawn in a phase-space torus view. The particles and HUD numbers are the real solution. <span class="spec">The violet arcs are decorative discrete "kernel hops" to a 12×6 node lattice. They do not move the particles, and they are not physical quantum dynamics, not a quantum Navier–Stokes model and not a Clay-problem claim.</span><br><span class="meta">25 s · 1920×1080 · H.264 · 34 MB</span><br><a class="dl" href="03_p2q_kernel_jumps_watermarked.mp4" download>Download MP4</a></figcaption></figure>
+<figure>
+<video controls playsinline preload="metadata" poster="01_inside_the_torus_abc_watermarked.jpg">
+<source src="01_inside_the_torus_abc_watermarked_narrated.mp4" type="video/mp4">
+<track kind="captions" srclang="en" label="English commentary" src="01_inside_the_torus_abc_watermarked_narrated.vtt" default>
+</video>
+<figcaption><h2>01 · INSIDE THE TORUS</h2>The ABC (Arnold–Beltrami–Childress) flow with A=B=C=1 and ν=0.05, from t=0 to 30. Here curl u = u, and the flow decays as e^(−νt). The camera flies through 3×3×3 periodic copies of the cell. The copies are exact because the flow is 2π-periodic.<br><span class="meta">30 s · 1920×1080 · H.264 · narrated · captions in player</span><br>
+<a class="dl" href="01_inside_the_torus_abc_watermarked_narrated.mp4" download>Download narrated MP4</a>
+<a class="dl" href="01_inside_the_torus_abc_watermarked.mp4" download>Download silent original</a>
+<a class="dl" href="transcripts/01_inside_the_torus_abc.txt">Transcript</a>
+<details class="transcript"><summary>Read transcript</summary>
+These glowing tracers follow an exact special fluid solution called A-B-C flow on a repeating box.
+
+The gold lines show the fluid's spin — its vorticity.
+
+Viscosity steadily reduces the kinetic energy. Watch E on the readout match the exact formula.
+
+This shows one smooth special case only. It does not solve the general three-D regularity problem.
+</details></figcaption></figure>
+<figure>
+<video controls playsinline preload="metadata" poster="02_taylor_green_cells_watermarked.jpg">
+<source src="02_taylor_green_cells_watermarked_narrated.mp4" type="video/mp4">
+<track kind="captions" srclang="en" label="English commentary" src="02_taylor_green_cells_watermarked_narrated.vtt" default>
+</video>
+<figcaption><h2>02 · TAYLOR–GREEN CELLS</h2>The 2D-in-3D Taylor–Green vortex with ν=0.05, from t=0 to 20. The vortex columns rotate in opposite directions and ω points along z. E and Z = 2E decay exactly as e^(−4νt), and the helicity is H = 0. The view is a crane move over 2×2 periodic copies.<br><span class="meta">20 s · 1920×1080 · H.264 · narrated · captions in player</span><br>
+<a class="dl" href="02_taylor_green_cells_watermarked_narrated.mp4" download>Download narrated MP4</a>
+<a class="dl" href="02_taylor_green_cells_watermarked.mp4" download>Download silent original</a>
+<a class="dl" href="transcripts/02_taylor_green_cells.txt">Transcript</a>
+<details class="transcript"><summary>Read transcript</summary>
+Here is Taylor–Green flow: counter-rotating columns in a repeating box.
+
+The vertical lines show spin pointing along the columns.
+
+Energy decays exactly as predicted, and helicity stays zero. One exact special solution — not general regularity.
+</details></figcaption></figure>
+<figure>
+<video controls playsinline preload="metadata" poster="03_p2q_kernel_jumps_watermarked.jpg">
+<source src="03_p2q_kernel_jumps_watermarked_narrated.mp4" type="video/mp4">
+<track kind="captions" srclang="en" label="English commentary" src="03_p2q_kernel_jumps_watermarked_narrated.vtt" default>
+</video>
+<figcaption><h2>03 · P2Q KERNEL JUMPS <span class="spec">(speculative art layer)</span></h2>The ABC flow (ν=0.05, t=0 to 25), drawn in a phase-space torus view. The particles and HUD numbers are the real solution. <span class="spec">The violet arcs illustrate transitions — an artistic idea inspired by Benjamin's P2Q research. This film does not calculate quantum-jump dynamics. The numbers on screen come from the fluid math alone. Not a Clay-problem claim.</span><br><span class="meta">25 s · 1920×1080 · H.264 · narrated · captions in player</span><br>
+<a class="dl" href="03_p2q_kernel_jumps_watermarked_narrated.mp4" download>Download narrated MP4</a>
+<a class="dl" href="03_p2q_kernel_jumps_watermarked.mp4" download>Download silent original</a>
+<a class="dl" href="transcripts/03_p2q_kernel_jumps.txt">Transcript</a>
+<details class="transcript"><summary>Read transcript</summary>
+The particles still follow the real A-B-C fluid solution.
+
+The violet arcs illustrate transitions — an artistic idea inspired by Benjamin's P-2-Q research.
+
+This film does not calculate quantum-jump dynamics. The numbers on screen come from the fluid math alone.
+</details></figcaption></figure>
 </div>
-<p class="note">These are exact special solutions. They demonstrate the energy identity for these explicit smooth flows only, and they say nothing about general 3D regularity or the Navier–Stokes Millennium Problem. The camera paths, bloom and colour maps are cinematography. Renderer, diagnostics and reproduction steps: <a href="https://github.com/BenFrohman/symplectic-tether-sim/tree/main/films">github.com/BenFrohman/symplectic-tether-sim/films</a>.</p>
+<p class="note">These are exact special solutions. They demonstrate the energy identity for these explicit smooth flows only, and they say nothing about general 3D regularity or the Navier–Stokes Millennium Problem. The camera paths, bloom and colour maps are cinematography. Spoken commentary is plain-English guidance over the same visuals; audio does not autoplay. Renderer, diagnostics and reproduction steps: <a href="https://github.com/BenFrohman/symplectic-tether-sim/tree/main/films">github.com/BenFrohman/symplectic-tether-sim/films</a>.</p>
 </main></body></html>
