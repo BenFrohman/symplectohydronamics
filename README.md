@@ -2,9 +2,9 @@
 
 [![Lean certificate](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/certify.yml) [![Lean 4](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/lean.yml/badge.svg)](https://github.com/BenFrohman/symplectohydronamics/actions/workflows/lean.yml)
 
-Private source of the public observatory for **Benjamin Stanley Frohman** — research catalog, living timeline, consulting aperture, hosted at **`symplectorilabs.com`**.
+Observatory source and working archive for **Benjamin Stanley Frohman** — research catalog, living timeline, consulting aperture, hosted at **`symplectorilabs.com`**.
 
-This repository is kept **private** as the working archive. The compiled static site is deployed to a public URL. That split — private git, public hosting — is standard for a personal research studio.
+This public repository is the observatory source and working archive. The compiled static site is also deployed to a public URL.
 
 ## What lives here
 
@@ -46,7 +46,7 @@ Railway service `fsymhd` (project `fsymhd`, environment `production`) is configu
 | CDN | on — HTML force-cache, 4h TTL, purge-all on deploy |
 | Config as code | `railway.json` |
 
-Connect the private GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the Railway GitHub App access to that repository: [GitHub → Settings → Applications → Installed GitHub Apps](https://github.com/settings/installations). Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
+Connect the GitHub repo `BenFrohman/symplectohydronamics` (branch `main`) in **Settings → Source → Connect Repo** after granting the Railway GitHub App access to that repository: [GitHub → Settings → Applications → Installed GitHub Apps](https://github.com/settings/installations). Until then, deploys are CLI uploads (`railway up`). After the repo is connected, `git push origin main` auto-deploys.
 
 Custom domains on Railway service `fsymhd` (one name, apex + www):
 
@@ -64,7 +64,7 @@ Set these at Porkbun (account Inv0x) under **DNS** for `symplectorilabs.com`. Un
 
 ## Update workflow
 
-1. Edit in this private repo.
+1. Edit in this repo.
 2. Commit with a provenance-grade message.
 3. `git push origin main`.
 4. Redeploy the static directory to the public host.
