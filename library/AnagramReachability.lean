@@ -1,10 +1,17 @@
 /-
-  Copyright (c) 2026 Benjamin Stanley Frohman.
+Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Stanley Frohman
+-/
+
+/-- Bounded letter counts. -/
+
+/-!
+# library.AnagramReachability
+
   Author: Benjamin Stanley Frohman (@Frohmanian / GitHub BenFrohman)
 -/
 
-
-/-- Bounded letter counts. -/
 structure Counts where
   s : Fin 6
   n : Fin 5
