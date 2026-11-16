@@ -88,4 +88,4 @@ Human-readable terms: [license.html](license.html). Legal files: [LICENSE](LICEN
 
 JAMA / JNS papers linked from the prior-research tab remain under their publishers’ copyrights. The resume PDF is a personal CV and is not licensed for third-party commercial republication.
 
-Contact: `frohmanbenjamin@gmail.com` · GitHub `BenFrohman` · X `@Investor0x`
+Contact: `frohmanbenjamin@gmail.com` · GitHub `BenFrohman` · X `@Frohmanian`

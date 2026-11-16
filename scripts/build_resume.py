@@ -49,7 +49,7 @@ def build():
     story.append(Paragraph(
         '<link href="mailto:frohmanbenjamin@gmail.com">frohmanbenjamin@gmail.com</link>'
         '  ·  <link href="https://github.com/BenFrohman">github.com/BenFrohman</link>'
-        '  ·  <link href="https://x.com/Investor0x">x.com/Investor0x</link><br/>'
+        '  ·  <link href="https://x.com/Frohmanian">x.com/Frohmanian</link><br/>'
         '<link href="https://orcid.org/0009-0006-7068-3718">orcid.org/0009-0006-7068-3718</link>'
         '  ·  <link href="https://www.linkedin.com/in/benfrohman-inv0x">LinkedIn</link>'
         '  ·  <link href="https://zenodo.org/search?q=Frohman%20Anagram%20Reachability">Zenodo</link>'

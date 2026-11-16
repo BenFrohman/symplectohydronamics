@@ -1,6 +1,6 @@
 /-
   Copyright (c) 2026 Benjamin Stanley Frohman.
-  Author: Benjamin Stanley Frohman (@Investor0x / GitHub BenFrohman)
+  Author: Benjamin Stanley Frohman (@Frohmanian / GitHub BenFrohman)
 -/
 
 
