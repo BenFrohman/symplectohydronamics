@@ -4,14 +4,13 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Benjamin Stanley Frohman
 -/
 
-/-- Bounded letter counts. -/
-
 /-!
 # library.AnagramReachability
 
-  Author: Benjamin Stanley Frohman (@Frohmanian / GitHub BenFrohman)
+Machine-checked Lean 4 module.
 -/
 
+/-- Bounded letter counts. -/
 structure Counts where
   s : Fin 6
   n : Fin 5
