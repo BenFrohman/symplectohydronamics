@@ -1,0 +1,6 @@
+commit: 47be4f7221755180c72719713e5292913abfea08
+lean-toolchain: leanprover/lean4:v4.34.0
+lean --version: Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)
+lake --version: Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)
+date (UTC): 2026-11-17T02:14:57Z
+run: https://github.com/BenFrohman/symplectohydronamics/actions/runs/44001466707
