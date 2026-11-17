@@ -1,0 +1,6 @@
+'Counts.mk.inj' does not depend on any axioms
+'Counts.mk.injEq' depends on axioms: [propext]
+'Counts.mk.sizeOf_spec' does not depend on any axioms
+'Reachable.brecOn' depends on axioms: [propext]
+'stateCard_eq' does not depend on any axioms
+AUDIT PASS: 5 theorems in 1 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)

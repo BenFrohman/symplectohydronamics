@@ -1,0 +1,5 @@
+'Counts.mk.sizeOf_spec' does not depend on any axioms [module AnagramReachability]
+'Reachable.brecOn' depends on axioms: [propext] [module AnagramReachability]
+'Counts.mk.injEq' depends on axioms: [propext] [module AnagramReachability]
+'stateCard_eq' does not depend on any axioms [module AnagramReachability]
+'Counts.mk.inj' does not depend on any axioms [module AnagramReachability]

@@ -1,0 +1,16 @@
+# Kernel certificate manifest
+# source commit: 47be4f7221755180c72719713e5292913abfea08
+# lean-toolchain: leanprover/lean4:v4.34.0
+# Mathlib: none (no Mathlib dependency)
+# CI run: https://github.com/BenFrohman/symplectohydronamics/actions/runs/44001466707
+# rebuild: git clone https://github.com/BenFrohman/symplectohydronamics.git && cd symplectohydronamics && git checkout 47be4f7221755180c72719713e5292913abfea08 && cd library && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+# verify: cd library/certificates && sha256sum -c MANIFEST.sha256
+a7a825a193f5faa764dca08f2a145765631d1a4468dc36dab78734ab28fb64ff  CERTIFICATE.md
+457bf052f34ca26edb17be8b7f1a4912256ef8922a87ed9edc1d359cb84fb3df  KernelCertificateAudit.lean.txt
+6cd6210f2b473b3862a87b72b6835856f13c6d5fbc9223547db467434ad0677e  axioms.raw.txt
+0180685c954997dcf8f78386d423aa33476542c50d671a8b50c3cf6c4a79c8c3  axioms.txt
+639bd1669315be854f2f05b93ded077bf34dc77e0378f4c4e5f3c294e5de5a42  build.log
+b9a01621afc2fc703db44860f0952f273241d3f63ddbc51d046743bfda8a6ad6  environment.txt
+6eb60769e7b8ae8acddabce9ef610c260091a3bc6499b0a6d272bdab90fb2c84  leanchecker.txt
+bd31bd5abc3e6c90956167eb72b11e1f41fa28f254876d5daa3630662b81f0ec  modules.txt
+f6a916ad807c8786f91618abb8f4c6a1d08d353e56ab03e470042d85ac819776  sorry-scan.txt
